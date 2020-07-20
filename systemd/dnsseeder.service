@@ -1,5 +1,5 @@
 [Unit]
-Description=DNS seeder for the Zcash network
+Description=DNS seeder for the Safecoin network
 Before=systemd-resolved
 
 [Service]

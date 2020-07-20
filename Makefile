@@ -3,14 +3,14 @@
 BUILD_DIR=build_output
 VERSION=v0.1.1
 
-all: coredns-zcash_${VERSION}.tgz
+all: coredns-safecoin_${VERSION}.tgz
 
-coredns-zcash_${VERSION}.tgz: ${BUILD_DIR}/coredns
-	tar czf coredns-zcash_${VERSION}.tgz ${BUILD_DIR}/ scripts/ coredns/ systemd/
+coredns-safecoin_${VERSION}.tgz: ${BUILD_DIR}/coredns
+	tar czf coredns-safecoin_${VERSION}.tgz ${BUILD_DIR}/ scripts/ coredns/ systemd/
 
 clean:
 	rm -rf ${BUILD_DIR}
-	rm coredns-zcash_${VERSION}.tgz
+	rm coredns-safecoin_${VERSION}.tgz
 
 ${BUILD_DIR}:
 	mkdir -p ${BUILD_DIR}
@@ -25,10 +25,10 @@ uninstall:
 	bash scripts/uninstall_systemd.sh
 
 docker:
-	docker build -t zfnd-seeder:$(VERSION) -f Dockerfile .
+	docker build -t safe-seeder:$(VERSION) -f Dockerfile .
 
 docker-run:
-	docker run -d --rm -p 1053:53/udp -p 1053:53/tcp -p 8080 zfnd-seeder:$(VERSION)
+	docker run -d --rm -p 1053:53/udp -p 1053:53/tcp -p 8080 safe-seeder:$(VERSION)
 
 docker-clean:
-	docker rmi zfnd-seeder:$(VERSION)
+	docker rmi safe-seeder:$(VERSION)

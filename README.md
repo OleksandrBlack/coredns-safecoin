@@ -1,12 +1,12 @@
-# Zcash DNS Seeder
+# Safecoin DNS Seeder
 
-This repo contains scripts for building and deploying the Zcash Foundation's DNS seeder. There are several options for how to deploy a seeder of your own:
+This repo contains scripts for building and deploying the Safecoin Foundation's DNS seeder. There are several options for how to deploy a seeder of your own:
 
 ### Docker
 
-To build the container, run either `make docker` or `docker build -t zfnd-seeder:latest -f Dockerfile .`.
+To build the container, run either `make docker` or `docker build -t safe-seeder:latest -f Dockerfile .`.
 
-To run the container, use `make docker-run` or `docker run --rm -p 1053:53/udp -p 1053:53/tcp zfnd-seeder:latest`. That will bind the DNS listener to the host's port 1053. You could also use `--network host` if you want to bind to the host's port 53 directly. The seeder is stateless so it's fine to `--rm` the containers when they exit.
+To run the container, use `make docker-run` or `docker run --rm -p 1053:53/udp -p 1053:53/tcp safe-seeder:latest`. That will bind the DNS listener to the host's port 1053. You could also use `--network host` if you want to bind to the host's port 53 directly. The seeder is stateless so it's fine to `--rm` the containers when they exit.
 
 If you want to override the default Corefile (and you should because it won't work with your domain), mount a volume over `/etc/dnsseeder/Corefile`.
 
@@ -39,4 +39,4 @@ dig @my.seeder.ip mainnet.dnsseed.example.com
 
 ## DNS configuration
 
-Let's say you want to configure seeders for the Zcash mainnet and testnet under the domain `dnsseed.example.com`. Then you would add an `NS` record for the subdomain `dnsseed` under your `example.com` configuration pointing to the address where you've deployed the seeder. The seeder will automatically respond to any subdomains as configured, so if your Corefile looks like [the default](coredns/Corefile) you'll end up with `mainnet.dnsseed.example.com` and `testnet.dnsseed.example.com`.
+Let's say you want to configure seeders for the Safecoin mainnet and testnet under the domain `dnsseed.example.com`. Then you would add an `NS` record for the subdomain `dnsseed` under your `example.com` configuration pointing to the address where you've deployed the seeder. The seeder will automatically respond to any subdomains as configured, so if your Corefile looks like [the default](coredns/Corefile) you'll end up with `mainnet.dnsseed.example.com` and `testnet.dnsseed.example.com`.

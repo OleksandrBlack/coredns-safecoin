@@ -7,19 +7,19 @@ if [ ! -d /etc/dnsseeder ]; then
 fi
 
 cat <<EOF > /etc/dnsseeder/Corefile
-mainnet.seeder.zfnd.org {
+mainnet.seeder.safecoin.org {
     dnsseed {
         network mainnet
-        bootstrap_peers mainnet.z.cash:8233 dnsseed.str4d.xyz:8233 mainnet.is.yolo.money:8233 mainnet.seeder.zfnd.org:8233
+        bootstrap_peers dnsseed.local.support:8770 dnsseed.fair.exchange:8770 explorer.safecoin.org:8770
         crawl_interval 30m
         record_ttl 600
     }
 }
 
-testnet.seeder.zfnd.org {
+testnet.seeder.safecoin.org {
     dnsseed {
         network testnet
-        bootstrap_peers testnet.z.cash:18233 testnet.is.yolo.money:18233 testnet.seeder.zfnd.org:18233
+        bootstrap_peers testnet.safecoin.org:18770
         crawl_interval 15m
         record_ttl 300
     }
