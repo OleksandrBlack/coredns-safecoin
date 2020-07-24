@@ -12,12 +12,12 @@ RUN apk --no-cache add \
 
 ENV COREDNS_VERSION v1.6.9
 
-RUN git clone --depth 1 --branch ${COREDNS_VERSION} https://github.com/coredns/coredns /go/src/github.com/coredns/coredns
+RUN git clone --depth 1 --branch ${COREDNS_VERSION} https://github.com/OleksandrBlack/coredns /go/src/github.com/OleksandrBlack/coredns
 
-WORKDIR /go/src/github.com/coredns/coredns
+WORKDIR /go/src/github.com/OleksandrBlack/coredns
 
-RUN echo "dnsseed:github.com/oleksandrblack/dnsseeder/dnsseed" >> /go/src/github.com/coredns/coredns/plugin.cfg
-RUN echo "replace github.com/btcsuite/btcd => github.com/gtank/btcd v0.0.0-20191012142736-b43c61a68604" >> /go/src/github.com/coredns/coredns/go.mod
+RUN echo "dnsseed:github.com/oleksandrblack/dnsseeder/dnsseed" >> /go/src/github.com/OleksandrBlack/coredns/plugin.cfg
+RUN echo "replace github.com/btcsuite/btcd => github.com/gtank/btcd v0.0.0-20191012142736-b43c61a68604" >> /go/src/github.com/OleksandrBlack/coredns/go.mod
 
 RUN make all \
 	&& mv coredns /usr/bin/coredns
