@@ -4,7 +4,7 @@ set -exuo pipefail
 
 WORKDIR="$(pwd)"
 BUILD_DIR=$(mktemp -d)
-COREDNS_VERSION="v1.7.0"
+COREDNS_VERSION="v1.7.1"
 
 git clone --branch ${COREDNS_VERSION} https://github.com/OleksandrBlack/coredns ${BUILD_DIR}
 cd ${BUILD_DIR}
