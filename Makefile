@@ -1,7 +1,7 @@
 .PHONY: docker docker-run docker-clean install uninstall all clean
 
 BUILD_DIR=build_output
-VERSION=v0.1.1
+VERSION=v1.0.0
 
 all: coredns-safecoin_${VERSION}.tgz
 
